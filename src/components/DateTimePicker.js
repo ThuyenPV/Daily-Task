@@ -3,7 +3,7 @@ import {Button, View, Text, TouchableOpacity} from 'react-native';
 import DatePicker from 'react-native-date-picker';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function DeadlinePicker() {
+export default function DeadlinePicker({onDeadlineChange}) {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
 
@@ -40,6 +40,7 @@ export default function DeadlinePicker() {
         date={date}
         title="Select Deadline"
         onConfirm={date => {
+          onDeadlineChange(date);
           setOpen(false);
           setDate(date);
         }}
